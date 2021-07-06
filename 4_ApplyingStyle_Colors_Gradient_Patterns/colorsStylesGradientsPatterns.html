@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{ margin:40px; background:#000; }
+#my_canvas{ background:#FFF; border:#000 1px solid; }
+</style>
+<script>
+    var p = new Image ();
+    p.src ="https://media.prod.mdn.mozit.cloud/attachments/2012/07/09/1429/e2d55b8d5c9efd75a12112264d4ac091/Canvas_earth.png";
+function draw() {
+   var ctx = document.getElementById("my_canvas").getContext("2d");
+  
+    // color || hex || rgba() || gradient || pattern
+
+    ctx.fillStyle= 'pink';
+    ctx.fillRect(0,0,200,200);
+    ctx.strokeStyle = 'red';
+    ctx.strokeRect(0,0,200,200); 
+ 
+    // var gradient = ctx.createLinearGradient(x0, y0, x1, y1);
+   //  addColorStop(offset, color)
+ 
+ 
+  var g1 = ctx.createLinearGradient(0, 0, 200, 0);
+    g1.addColorStop(0,"red");
+   g1.addColorStop(0.5,"pink");
+    g1.addColorStop(1,"yellow");
+    ctx.fillStyle = g1;
+    ctx.strokeStyle = "brown";
+    ctx.fillRect(0, 0, 200, 200);
+    ctx.strokeRect(0, 0, 200, 200); 
+  
+    // createRadialGradient(x0, y0, r0, x1, y1, r1) 
+    //  addColorStop(offset, color)
+  
+    var g2 = ctx.createRadialGradient(350, 100, 0, 350, 100, 200);
+    g2.addColorStop(0,"red");
+    g2.addColorStop(0.4,"pink");
+    g2.addColorStop(0.6,"green");
+    ctx.fillStyle = g2;
+    ctx.strokeStyle = "brown";
+    ctx.fillRect(250,0,200,200);
+    ctx.strokeRect(250,0,200,200); 
+   
+
+    // createPattern(image, type) 
+    var p1 = ctx.createPattern(p, "repeat");
+    ctx.fillStyle = p1;
+    ctx.fillRect(0,250,240,240);
+    ctx.lineWidth = 20;
+    ctx.strokeStyle = g1;
+    ctx.strokeRect(0,250,240,240);
+    ctx.fill();
+}
+window.onload = draw;
+</script>
+</head>
+<body>
+<canvas id="my_canvas" width="900" height="900"></canvas>
+</body>  
+</html>

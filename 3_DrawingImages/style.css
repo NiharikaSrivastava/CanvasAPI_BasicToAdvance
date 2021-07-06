@@ -1,0 +1,16 @@
+body {
+    background: 0 -100px repeat-x url(gallery_display_background_12_vector_158738\(2\).jpg) #eb9293;
+    margin: 70px;
+  }
+  
+  img {
+    display: none;
+  }
+  
+  table {
+    margin: 150px auto;
+  }
+  
+  td {
+    padding: 45px;
+  }
